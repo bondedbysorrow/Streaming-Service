@@ -1,0 +1,174 @@
+/* ============================================== */
+/* Variables de Color (Se mantienen las oscuras) */
+/* ============================================== */
+:root {
+    --bg-dark: #1F2937;
+    --bg-dark-accent: #2d3748; /* Fondo contenedor principal */
+    --bg-sidebar: #1a202c;     /* Fondo inputs */
+    --text-light: #ffffff;
+    --text-muted: #a0aec0;
+    --primary-purple: #7c3aed; /* Color acento botones/títulos */
+    --primary-purple-darker: #7c3aed;
+    --border-color: #4a5568;
+    --danger-red: #e53e3e;
+    --danger-red-light: #FEB2B2; /* Color texto error claro */
+    --success-green: #10B981;
+    --success-green-light: #A7F3D0;
+    --focus-ring-color: #9f7aea; /* Color anillo foco inputs */
+    --focus-ring-checkbox-color: #a382ec; /* Color anillo foco checkbox (ligeramente diferente para destacar) */
+
+    /* Tiempos de transición */
+    --transition-speed: 0.4s;
+    --transition-timing: ease-in-out;
+}
+
+/* ============================================== */
+/* Estilos Generales y Cuerpo                  */
+/* ============================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark); /* Mantenido */
+    color: var(--text-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* ============================================== */
+/* Layout Principal (Side-by-Side)            */
+/* ============================================== */
+main {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+}
+
+.contenedor__todo {
+    width: 100%;
+    display: flex;
+    background-color: var(--bg-dark-accent); /* Fondo del contenedor */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* Panel Izquierdo: Contenedor de Formularios */
+.contenedor__login-register {
+    flex-basis: 50%;
+    background-color: var(--bg-dark-accent); /* Fondo panel izquierdo */
+    position: relative;
+    min-height: 550px;
+    display: block; /* Necesario para que position: absolute funcione dentro */
+}
+
+/* Panel Derecho: Contenedor de Prompts/Cambio */
+.caja__trasera {
+    flex-basis: 50%;
+    background-color: var(--bg-dark); /* Fondo panel derecho (más oscuro) */
+    position: relative; /* Necesario para los elementos hijos absolutos */
+    min-height: 550px;
+    display: block; /* Necesario para que position: absolute funcione dentro */
+}
+
+/* Formularios (Login y Register) */
+.contenedor__login-register form {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 50px 40px;
+    display: flex; flex-direction: column; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity var(--transition-speed) var(--transition-timing);
+    max-width: none; margin: 0; background: transparent; box-shadow: none; border-radius: 0;
+}
+.contenedor__login-register form.active { opacity: 1; pointer-events: auto; z-index: 2; }
+
+/* Contenido interno del formulario (wrapper para centrar) */
+.contenedor__login-register form > div.form-content-wrapper { width: 100%; max-width: 380px; margin: auto; }
+
+/* Títulos y Inputs dentro de los forms */
+.contenedor__login-register form h2 { font-size: 24px; text-align: center; margin-bottom: 25px; color: var(--primary-purple); }
+.contenedor__login-register form input:not([type="checkbox"]) { width: 100%; margin-top: 15px; padding: 12px 15px; border: 1px solid var(--border-color); background: var(--bg-sidebar); font-size: 14px; outline: none; color: var(--text-light); border-radius: 5px; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+.contenedor__login-register form input:not([type="checkbox"]):focus { border-color: var(--primary-purple); box-shadow: 0 0 0 2px var(--focus-ring-color); }
+.contenedor__login-register form input.input-error { border-color: var(--danger-red) !important; } /* Estilo error input */
+
+/* Opciones (Recordarme / Olvidaste) */
+.form-options { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; margin-bottom: 25px; font-size: 13px; }
+.form-options__remember { display: flex; align-items: center; color: var(--text-muted); cursor: pointer; }
+.form-options__remember input[type="checkbox"] { width: auto; margin-right: 8px; cursor: pointer; accent-color: var(--primary-purple); vertical-align: middle; /* Alineación vertical */ }
+
+/* MEJORA: Estilo de foco para el checkbox */
+.form-options__remember input[type="checkbox"]:focus-visible {
+    outline: 2px solid var(--focus-ring-checkbox-color);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(163, 130, 236, 0.3); /* Sombra suave opcional */
+}
+
+.form-options__remember span { user-select: none; }
+.form-options__forgot { color: var(--primary-purple); text-decoration: none; transition: color 0.3s ease; }
+.form-options__forgot:hover { color: var(--primary-purple-darker); text-decoration: underline; }
+
+/* Botón SUBMIT del Formulario */
+.contenedor__login-register form button[type="submit"] { display: block; width: 60%; margin: 25px auto 0 auto; padding: 12px 20px; border: none; font-size: 15px; background: var(--primary-purple); font-weight: 600; cursor: pointer; color: var(--text-light); outline: none; border-radius: 20px; transition: background-color 300ms ease, opacity 300ms ease; position: relative; }
+.contenedor__login-register form button[type="submit"]:hover { background: var(--primary-purple-darker); }
+.contenedor__login-register form button[type="submit"]:disabled { opacity: 0.7; cursor: not-allowed; background: var(--primary-purple-darker); } /* Mantenido el color oscuro al deshabilitar */
+
+/* Contenido del Panel Derecho (Prompts) */
+.caja__trasera div { /* .caja__trasera-login, .caja__trasera-register */
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 50px 40px;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    opacity: 0; pointer-events: none; transition: opacity var(--transition-speed) var(--transition-timing);
+    color: var(--text-light); text-align: center;
+}
+.caja__trasera div.active { opacity: 1; pointer-events: auto; z-index: 2; }
+
+/* Contenido interno del prompt (wrapper para centrar) */
+.caja__trasera div > div.prompt-content-wrapper { width: 100%; max-width: 380px; margin: auto; }
+.caja__trasera div h3 { font-weight: 600; font-size: 22px; margin-bottom: 15px; color: var(--text-light); }
+.caja__trasera div p { font-size: 14px; font-weight: 300; color: var(--text-muted); margin-bottom: 25px; line-height: 1.5; }
+.caja__trasera button { padding: 10px 30px; border: none; font-size: 14px; background: var(--primary-purple); font-weight: 600; cursor: pointer; color: var(--text-light); outline: none; transition: background-color 300ms ease; border-radius: 20px; width: 60%; margin-top: 10px; }
+.caja__trasera button:hover { background: var(--primary-purple-darker); }
+
+/* ============================================== */
+/* Estilos Feedback (Errores/Éxito)             */
+/* ============================================== */
+/* Contenedor General de Errores */
+.error-container { margin-top: 20px; padding: 10px 15px; border-radius: 5px; font-size: 0.9em; text-align: left; background: rgba(229, 62, 62, 0.15); border-left: 4px solid var(--danger-red); color: var(--danger-red-light); position: relative; z-index: 3; }
+.error-container strong { display: block; margin-bottom: 5px; color: var(--text-light); }
+.error-container ul { margin: 0; padding: 0 0 0 5px; list-style: none; }
+.error-container li { margin: 3px 0; }
+
+/* Mensaje de éxito */
+.success-message { margin-top: 15px; padding: 12px 15px; border-radius: 5px; font-size: 14px; text-align: left; background: rgba(16, 185, 129, 0.15); border-left: 4px solid var(--success-green); color: var(--success-green-light); position: relative; z-index: 3; }
+
+/* Mensaje de error específico debajo del campo (Estilo presente pero no usado activamente por JS para 422) */
+.field-error-message { color: var(--danger-red-light); font-size: 0.85em; margin-top: 6px; padding-left: 2px; text-align: left; min-height: 1.2em; position: relative; z-index: 3; }
+
+/* Spinner básico */
+.spinner-border { display: inline-block; width: 1rem; height: 1rem; vertical-align: -0.125em; border: .2em solid currentColor; border-right-color: transparent; border-radius: 50%; animation: spinner-border .75s linear infinite; margin-right: 5px; }
+@keyframes spinner-border { to { transform: rotate(360deg); } }
+
+/* ============================================== */
+/* Estilos Responsivos (Móvil)                  */
+/* ============================================== */
+@media screen and (max-width: 850px) {
+    body { align-items: flex-start; padding-top: 30px; }
+    main { max-width: 450px; }
+    .contenedor__todo { flex-direction: column; background: transparent; box-shadow: none; }
+    .contenedor__login-register, .caja__trasera { flex-basis: auto; width: 100%; min-height: auto; border-radius: 15px; padding: 0; position: relative; overflow: hidden; }
+    .contenedor__login-register { background-color: var(--bg-dark-accent); margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); min-height: 480px; }
+    .caja__trasera { background-color: var(--bg-dark); box-shadow: 0 5px 15px rgba(0,0,0,0.2); min-height: 280px; }
+    .contenedor__login-register form, .caja__trasera div { padding: 30px 25px; }
+    .contenedor__login-register form > div.form-content-wrapper, .caja__trasera div > div.prompt-content-wrapper { max-width: 100%; }
+    .contenedor__login-register form button[type="submit"], .caja__trasera button { width: 80%; margin-left: auto; margin-right: auto; }
+    .field-error-message { padding-right: 10px; }
+}

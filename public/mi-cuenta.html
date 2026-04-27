@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cuenta - NextPlay</title>
+    <!-- Estilos base -->
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/mi-cuenta.css">
+    <!-- Estilos mejorados -->
+    <link rel="stylesheet" href="/css/mi-cuenta-enhanced.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <a href="/"><span>NP</span>Streaming</a>
+                </div>
+            </div>
+            <div class="sidebar-search">
+                <input type="text" placeholder="Buscar...">
+            </div>
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="/" class="nav-link">INICIO</a></li>
+                    <li class="nav-item"><a href="/tienda" class="nav-link">TIENDA</a></li>
+                    <li class="nav-item"><a href="/carrito" class="nav-link">CARRITO</a></li>
+                    <li class="nav-item"><a href="/mi-cuenta" class="nav-link active">MI CUENTA</a></li>
+                    <li class="nav-item"><a href="/soporte" class="nav-link">SOPORTE</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="saldo">Saldo: <span>$ 3.520</span></div>
+                <a href="/logout" class="btn btn-danger w-100">LOG OUT</a>
+            </div>
+        </div>
+
+        <!-- Contenido principal -->
+        <div class="content">
+            <div class="mi-cuenta-container">
+                <div class="user-info-card">
+                    <div class="user-info-header">
+                        <div class="user-avatar">VP</div>
+                        <div class="user-details">
+                            <h2 class="user-name">Victor Perez</h2>
+                            <p class="user-email">victor@ejemplo.com</p>
+                        </div>
+                    </div>
+                    <div class="user-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">3</div>
+                            <div class="stat-label">Pedidos</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">$ 3.520</div>
+                            <div class="stat-label">Saldo</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">5</div>
+                            <div class="stat-label">Productos</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="orders-section">
+                    <div class="section-header">
+                        <h3 class="section-title">MIS PEDIDOS</h3>
+                        <a href="/tienda" class="btn-mi-cuenta">Ver Tienda</a>
+                    </div>
+
+                    <div class="orders-grid">
+                        <!-- Tarjeta de pedido 1 -->
+                        <div class="order-card">
+                            <div class="order-header">
+                                <div class="order-id">#27</div>
+                                <div class="order-date">28/04/2025</div>
+                            </div>
+                            <div class="order-body">
+                                <div class="order-status status-completado">Completado</div>
+                                <div class="order-info">
+                                    <div class="order-info-row">
+                                        <div class="info-label">Artículos:</div>
+                                        <div class="info-value">1</div>
+                                    </div>
+                                    <div class="order-info-row">
+                                        <div class="info-label">Método de pago:</div>
+                                        <div class="info-value">Saldo Monedero</div>
+                                    </div>
+                                    <div class="order-info-row">
+                                        <div class="info-label">Actualizado:</div>
+                                        <div class="info-value">28/04/2025 19:55</div>
+                                    </div>
+                                </div>
+                                <div class="order-total">$ 7.000</div>
+                            </div>
+                            <div class="order-footer">
+                                <a href="/pedido/27" class="btn-ver-detalles">Ver Detalles</a>
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta de pedido 2 -->
+                        <div class="order-card">
+                            <div class="order-header">
+                                <div class="order-id">#26</div>
+                                <div class="order-date">28/04/2025</div>
+                            </div>
+                            <div class="order-body">
+                                <div class="order-status status-completado">Completado</div>
+                                <div class="order-info">
+                                    <div class="order-info-row">
+                                        <div class="info-label">Artículos:</div>
+                                        <div class="info-value">1</div>
+                                    </div>
+                                    <div class="order-info-row">
+                                        <div class="info-label">Método de pago:</div>
+                                        <div class="info-value">Saldo Monedero</div>
+                                    </div>
+                                    <div class="order-info-row">
+                                        <div class="info-label">Actualizado:</div>
+                                        <div class="info-value">28/04/2025 19:53</div>
+                                    </div>
+                                </div>
+                                <div class="order-total">$ 5.500</div>
+                            </div>
+                            <div class="order-footer">
+                                <a href="/pedido/26" class="btn-ver-detalles">Ver Detalles</a>
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta de pedido 3 -->
+                        <div class="order-card">
+                            <div class="order-header">
+                                <div class="order-id">#25</div>
+                                <div class="order-date">28/04/2025</div>
+                            </div>
+                            <div class="order-body">
+                                <div class="order-status status-completado">Completado</div>
+                                <div class="order-info">
+                                    <div class="order-info-row">
+                                        <div class="info-label">Artículos:</div>
+                                        <div class="info-value">1</div>
+                                    </div>
+                                    <div class="order-info-row">
+                                        <div class="info-label">Método de pago:</div>
+                                        <div class="info-value">Saldo Monedero</div>
+                                    </div>
+                                    <div class="order-info-row">
+                                        <div class="info-label">Actualizado:</div>
+                                        <div class="info-value">28/04/2025 19:50</div>
+                                    </div>
+                                </div>
+                                <div class="order-total">$ 3.500</div>
+                            </div>
+                            <div class="order-footer">
+                                <a href="/pedido/25" class="btn-ver-detalles">Ver Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vista alternativa: Tabla de pedidos -->
+                    <div class="orders-table-container">
+                        <table class="orders-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Fecha</th>
+                                    <th>Estado</th>
+                                    <th>Total</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="ID">#27</td>
+                                    <td data-label="Fecha">28/04/2025</td>
+                                    <td data-label="Estado"><span class="order-status status-completado">Completado</span></td>
+                                    <td data-label="Total">$ 7.000</td>
+                                    <td data-label="Acciones"><a href="/pedido/27" class="btn-mi-cuenta">Ver</a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="ID">#26</td>
+                                    <td data-label="Fecha">28/04/2025</td>
+                                    <td data-label="Estado"><span class="order-status status-completado">Completado</span></td>
+                                    <td data-label="Total">$ 5.500</td>
+                                    <td data-label="Acciones"><a href="/pedido/26" class="btn-mi-cuenta">Ver</a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="ID">#25</td>
+                                    <td data-label="Fecha">28/04/2025</td>
+                                    <td data-label="Estado"><span class="order-status status-completado">Completado</span></td>
+                                    <td data-label="Total">$ 3.500</td>
+                                    <td data-label="Acciones"><a href="/pedido/25" class="btn-mi-cuenta">Ver</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Paginación -->
+                    <div class="pagination-wrapper">
+                        <ul class="pagination">
+                            <li class="page-item disabled"><a class="page-link" href="#">«</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">»</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/app.js"></script>
+    <script src="/js/mi-cuenta-enhanced.js"></script>
+</body>
+</html>
